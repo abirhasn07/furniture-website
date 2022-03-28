@@ -4,6 +4,10 @@ import Loading from './components/Loading'
 import Home from './Home'
 
 const App = () => {
+
+
+
+    // product section 
   const [slide, setSlide] = useState([])
     const [isSliderLoading, setSliderLoading] = useState(false)
     const getSlideData = useCallback(async () => {
@@ -36,18 +40,81 @@ const App = () => {
                 return updateSlide;
                 // console.log(cleanSlide);
             })
-            setSlide(cleanSlide)
+
+            
+        
+
+        setSlide(cleanSlide)
+      
           
         }, []
     )
+  
 
 
 
-    useEffect(() => {
 
-        getSlideData()
-        // cleanupSlide()
-    }, [getSlideData])
+
+    // product 
+
+    const [product,setProduct]=useState([])
+
+  const getProducts = useCallback(async () => {
+    // setSliderLoading(true)
+    try {
+        const response = await client.getEntries({ content_type: 'furnitureProduct' })
+        const resposneData = response.items
+        if (resposneData) {
+          cleanProductData(resposneData)
+        } else {
+            setProduct([])
+        }
+        // setSliderLoading(false)
+    } catch (error) {
+        console.log(error);
+        // setSliderLoading(false)
+    }
+}, [])
+
+const cleanProductData = useCallback(
+  (productData) => {
+      const cleanSlide = productData.map((pd) => {
+
+        // console.log(pd);
+          const { sys, fields } = pd
+          const { id } = sys
+          const productName = fields.productName
+          const productPrice = fields.productPrice
+      
+          const productImage = fields.productImage.fields.file.url
+          const updateProducts = { id, productName, productPrice, productImage }
+        
+          return updateProducts;
+          // console.log(cleanSlide);
+      })
+
+      
+  
+
+  setProduct(cleanSlide)
+
+    
+  }, []
+)
+
+
+
+// console.log(product);
+
+
+useEffect(() => {
+    getSlideData()
+    getProducts()
+
+    // cleanupSlide()
+}, [getSlideData, getProducts])
+
+    // product 
 
     if (isSliderLoading) {
       return(
@@ -57,7 +124,7 @@ const App = () => {
     }
   return (
     <>
-    <Home slide={slide}/>
+    <Home slide={slide} product={product}/>
   
     </>
   )

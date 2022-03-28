@@ -12,7 +12,8 @@ import Curosol from './Curosol'
 
 const Header = (props) => {
 
-    const slide = (props.props.slide);
+    const slide = (props.slide);
+    // console.log(slide);
     return (
         <header>
             <div className="slider-container carousel">
@@ -21,7 +22,7 @@ const Header = (props) => {
                     modules={[Navigation, Autoplay]}
                     // loop={true}
                     autoplay={{
-                        autoplay: false,
+                        autoplay: true,
                         delay: 8000,
 
                         disableOnInteraction: false,

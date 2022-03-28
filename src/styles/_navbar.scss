@@ -44,14 +44,15 @@
         align-items: start;
         top: -100vh;
         left: 0px;
-        background-color: white;
+        background-color: rgb(227, 5, 5);
         width: 105vw;
         margin: 0 auto;
         min-height: 90vh;
       padding: 0;
       justify-content: flex-start;
       padding-top: 1rem;
-        
+      z-index: 999;
+        opacity: 1;
 
         
         

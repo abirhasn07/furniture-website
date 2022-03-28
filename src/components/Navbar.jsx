@@ -5,8 +5,11 @@ import { HiOutlineMenuAlt1 } from 'react-icons/hi'
 import { FiSearch } from 'react-icons/fi'
 import { AiOutlineShopping } from 'react-icons/ai'
 const Navbar = () => {
-  const [navbar,setNavbar]=useState(false)
+  const [navbar,setNavbar]=useState(true)
   const [menu,setMenu]=useState(false)
+
+
+
 
   const StickyNavbar = () => {
     if (window.scrollY >= 90) {

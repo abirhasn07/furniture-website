@@ -1,0 +1,50 @@
+#blog{
+    width: 100%;
+    max-width: $max-width;
+    padding: 4rem 0;
+    background-color: $grey-light;
+
+    p{
+        text-align: center;
+        font-size: 0.9rem;
+        color: $orange;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    h2{
+        text-align: center;
+        line-height: 0;
+        font-size: 2rem;
+        color: $black;
+        font-weight: 600;
+    }
+
+}
+
+.blog-container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 2rem;
+
+    .blog-card{
+        width: 30%;
+        box-shadow: 5px 5px 3px rgba($color: $black, $alpha: 0.1);
+        cursor: pointer;
+        @media (max-width:760px) {
+            width: 100%;
+        }
+        img{
+            width: 100%;
+        }
+
+        h4{
+            line-height: 100%;
+            font-weight: 500;
+        }
+    }
+}
