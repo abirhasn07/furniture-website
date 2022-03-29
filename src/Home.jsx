@@ -1,6 +1,7 @@
 import React from 'react'
 import Blog from './components/Blog'
 import Categories from './components/Categories'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import Offer from './components/Offer'
@@ -16,6 +17,7 @@ const Home = ({product,slide}) => {
     <Product product={product}/>
     <Offer/>
     <Blog/>
+    <Footer/>
     </>
   )
 }
